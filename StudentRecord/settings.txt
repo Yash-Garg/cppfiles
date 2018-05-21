@@ -1,0 +1,38 @@
+//This file is used to manage the settings of the student record program
+//to edit any setting remove the two forward slashes if present before the variables name and change the setting accordingly
+//make sure that the desired value is within the square braces
+//Only change values within the square braces, or add comments(two forward slashes)
+//Mandatory settings are marked with a *
+//the program will use the default values of mandatory settings if they are removed (commented) from this file 
+//the spce between setting name, =, and setting values is important
+
+//Specify the number of the Formative Assessments in an year (max 10)
+N_FA* = [4]
+
+//Specify the maximum marks achievable in a Formative Assessment
+MAX_FA* = [25]
+
+//Specify the percent weightage given to each Formative Assessment Exam
+WEIGHT_FA* = [10]%
+
+//Specify the number of the Formative Assessments in an year (max 10)
+N_SA* = [2]
+
+//Specify the maximum marks achievable in a Formative Assessment
+MAX_SA* = [100]
+
+//Specify the percent weightage given to each Formative Assessment Exam
+WEIGHT_SA* = [30]%
+
+//Use this option to select a user by default
+//1: Teacher, 2: Student, 3: Developer
+//DEFAULT_USER = [1]
+
+//Use this option to automatically enter a pass for teacher login
+//Only use this option on a trusted teacher PC
+//TEACHER_PASS = []
+
+//Use this option to automatically enter Uniuqe ID for Developer login
+//Get this code from the UIDGen in the DevKit
+//Only for Developers
+//DEV_CHECK = []
