@@ -8,7 +8,7 @@ char name[30];
 ifstream fin;
 int i;
 
-void convert () { 							//Loop for converting Upper to lower and vice versa
+void convert () { 									//Loop for converting Upper to lower and vice versa
 	for (i=0;i<=strlen(name);i++) {
 		if (islower(name[i])) {
 			name[i] = (toupper(name[i]));
@@ -20,13 +20,13 @@ void convert () { 							//Loop for converting Upper to lower and vice versa
 }
 
 int main () {
-	fin.open("main.txt" , ios :: in);
+	fin.open("main.txt" , ios :: in);				//Gets input from main.txt
 	fin.getline(name , 30);
 	convert();
 	cout<<"Converted text : ";
 	puts(name);
 	fin.close();
-	ofstream fout("convert.txt" , ios :: out);
+	ofstream fout("convert.txt" , ios :: out);		//Gives output in convert.txt
 	fout<<name;
 	fout.close();
 	return 0;
