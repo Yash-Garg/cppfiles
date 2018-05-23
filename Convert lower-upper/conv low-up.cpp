@@ -26,7 +26,7 @@ int main () {
 	cout<<"Converted text : ";
 	puts(name);
 	fin.close();
-	ofstream fout("convert.txt" , ios :: out);		//Gives output in convert.txt
+	ofstream fout("convert.txt" , ios :: out);		//Gives output to convert.txt
 	fout<<name;
 	fout.close();
 	return 0;
