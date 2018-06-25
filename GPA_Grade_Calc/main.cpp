@@ -16,23 +16,28 @@ class std_details {
 		float calc_perc(); 				//Calculates the percentage in each subject
 		float calc_gpa(); 				//Calculates the GPA in each subject
 		float calc_cgpa(); 				//Calculates the CGPA in each subject
-		float calc_grade(); 				//Calculates the Grade in each subject
+		float calc_grade(); 			//Calculates the Grade in each subject
 }init;
 
 void std_details :: get_details () {
+	Sleep(500);
 	cout<<"\n"<<"Enter The Roll Number : ";
 	cin>>stdno;
 	cin.ignore();
+	Sleep(500);
 	cout<<"\n"<<"Enter The Student's Name : ";
 	gets(name);
+	Sleep(500);
 	cout<<"\n"<<"Enter The Class : ";
 	cin>>stdclass;
+	Sleep(500);
 	cout<<"\n"<<"Enter The Section : ";
 	cin>>sec;
 }
 
 void std_details :: get_marks () {
 	for (i=0;i<=2;i++) {
+		Sleep(500);
 		cout<<"\n"<<"Enter The Marks Obtained In Subject (out of 100) : ";
 		cin>>sbmarks[i];
 		calc_perc();
