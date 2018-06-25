@@ -5,18 +5,18 @@
 #include<stdlib.h>
 #include<conio.h>
 using namespace std;
-
+int i;
 class std_details {
 	float perc, gpa, cgpa;
-	char name[30], sec, sbname[30];
-	int x, y, stdclass, stdno, sbmarks;
+	char name[30], sec;
+	int x, y, stdclass, stdno, sbmarks[2];
 	public:
 		void get_details();				//Get the details of student
 		void get_marks();				//Gets the marks for subjects
 		float calc_perc(); 				//Calculates the percentage in each subject
 		float calc_gpa(); 				//Calculates the GPA in each subject
 		float calc_cgpa(); 				//Calculates the CGPA in each subject
-		float calc_grade(); 			//Calculates the Grade in each subject
+		float calc_grade(); 				//Calculates the Grade in each subject
 }init;
 
 void std_details :: get_details () {
@@ -32,18 +32,15 @@ void std_details :: get_details () {
 }
 
 void std_details :: get_marks () {
-	for (int i=0;i<=2;i++) {
-		cout<<"\n"<<"Enter The Name Of Subject : ";
-		cin.ignore();
-		gets(sbname);
+	for (i=0;i<=2;i++) {
 		cout<<"\n"<<"Enter The Marks Obtained In Subject (out of 100) : ";
-		cin>>sbmarks;
+		cin>>sbmarks[i];
 		calc_perc();
 	}
 }
 
 float std_details :: calc_perc () {
-	x = (sbmarks*100)/100;
+	x = (sbmarks[i]*100)/100;
 }
 
 int main () {
