@@ -1,4 +1,4 @@
-Ques. Write a C++ program that calculates percentage, GPA and grade of a student. Your program should prompt the user to enter total marks and marks obtained in three subjects. Then program will calculate percentage and GPA for each subject based on entered total and obtained marks and will display the result on output screen. After calculating percentage and GPA of three subjects, calculate semester GPA (called CGPA) and the grade of student obtained in semester and display it on the screen. 
+Q. Write a C++ program that calculates percentage, GPA and grade of a student. Your program should prompt the user to enter total marks and marks obtained in three subjects. Then program will calculate percentage and GPA for each subject based on entered total and obtained marks and will display the result on output screen. After calculating percentage and GPA of three subjects, calculate semester GPA (called CGPA) and the grade of student obtained in semester and display it on the screen. 
 
 > Formula to calculate Subject percentage : Marks Obtained *100 / Total Marks 
 > Formula to calculate Subject GPA : Percentage Marks * 5 / 100 
@@ -6,7 +6,7 @@ Ques. Write a C++ program that calculates percentage, GPA and grade of a student
 
 Detailed Description :
 
-1. Program should prompt the user toenter
+1. Program should prompt the user to enter
 
                 i.      Total marks in subject 1
 
@@ -16,8 +16,8 @@ After taking input from the user, it must calculate percentage and GPA of subjec
 
 2. Now the program will prompt the user toenter
 
-                i.      Total marksin subject 2
-
+                i.      Total marks in subject 2
+	
               ii.      Obtained marks in subject 2
 
 And it will calculate percentage and GPA for subject 2 insimilar way and will display them on the screen.
@@ -26,7 +26,7 @@ And it will calculate percentage and GPA for subject 2 insimilar way and will di
 
 4. After calculating percentage and GPA ofthree subjects, your program should calculate semester GPA (calledCGPA) and display it on the screen.
 
-5. After calculating CGPA of a student, theprogram use else-if statements or nested if statements to determinethe grade of the student and will display it on the screen. Theconditions of the if statements should be:
+5. After calculating CGPA of a student, the program use else-if statements or nested if statements to determine the grade of the student and will display it on the screen. The conditions of the if statements should be:
 
     If Student s’ CGPA >= 4 then grade =‘A’.
     If Student s’ CGPA >=3 && CGPA < 4 thengrade = ‘B’.    
