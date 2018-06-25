@@ -3,7 +3,6 @@
 #include<windows.h>
 #include<stdio.h>
 #include<stdlib.h>
-
 using namespace std;
 
 class std_details {
