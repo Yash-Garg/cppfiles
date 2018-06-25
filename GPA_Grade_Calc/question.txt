@@ -1,4 +1,4 @@
-Q. Write a C++ program that calculates percentage, GPA and grade of a student. Your program should prompt the user to enter total marks and marks obtained in three subjects. Then program will calculate percentage and GPA for each subject based on entered total and obtained marks and will display the result on output screen. After calculating percentage and GPA of three subjects, calculate semester GPA (called CGPA) and the grade of student obtained in semester and display it on the screen. 
+Ques. Write a C++ program that calculates percentage, GPA and grade of a student. Your program should prompt the user to enter total marks and marks obtained in three subjects. Then program will calculate percentage and GPA for each subject based on entered total and obtained marks and will display the result on output screen. After calculating percentage and GPA of three subjects, calculate semester GPA (called CGPA) and the grade of student obtained in semester and display it on the screen. 
 
 > Formula to calculate Subject percentage : Marks Obtained *100 / Total Marks 
 > Formula to calculate Subject GPA : Percentage Marks * 5 / 100 
