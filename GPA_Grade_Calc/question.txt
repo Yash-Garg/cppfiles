@@ -10,7 +10,7 @@ Detailed Description :
 
                 i.      Total marks in subject 1
 
-              ii.      Obtained marks in subject 1
+               ii.      Obtained marks in subject 1
 
 After taking input from the user, it must calculate percentage and GPA of subject 1. After calculating percentage and GPA, it will display percentage and GPA on the output screen.
 
@@ -18,7 +18,7 @@ After taking input from the user, it must calculate percentage and GPA of subjec
 
                 i.      Total marks in subject 2
 	
-              ii.      Obtained marks in subject 2
+               ii.      Obtained marks in subject 2
 
 And it will calculate percentage and GPA for subject 2 insimilar way and will display them on the screen.
 
@@ -26,10 +26,10 @@ And it will calculate percentage and GPA for subject 2 insimilar way and will di
 
 4. After calculating percentage and GPA ofthree subjects, your program should calculate semester GPA (calledCGPA) and display it on the screen.
 
-5. After calculating CGPA of a student, the program use else-if statements or nested if statements to determine the grade of the student and will display it on the screen. The conditions of the if statements should be:
+5. After calculating CGPA of a student, theprogram use else-if statements or nested if statements to determine the grade of the student and will display it on the screen. The conditions of the if statements should be:
 
     If Student s’ CGPA >= 4 then grade =‘A’.
-    If Student s’ CGPA >=3 && CGPA < 4 thengrade = ‘B’.    
-    If Student s’ CGPA >= 2 && CGPA < 3 thengrade = ‘C’.
-    If Student s’ CGPA >=1 && CGPA < 2 thengrade = ‘D’.
+    If Student s’ CGPA >=3 && CGPA < 4 then grade = ‘B’.    
+    If Student s’ CGPA >= 2 && CGPA < 3 then grade = ‘C’.
+    If Student s’ CGPA >=1 && CGPA < 2 then grade = ‘D’.
     If Student s’ CGPA < 1 then grade =‘F’.
