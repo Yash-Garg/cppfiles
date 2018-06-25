@@ -1,0 +1,35 @@
+Q. Write a C++ program that calculates percentage, GPA and grade of a student. Your program should prompt the user to enter total marks and marks obtained in three subjects. Then program will calculate percentage and GPA for each subject based on entered total and obtained marks and will display the result on output screen. After calculating percentage and GPA of three subjects, calculate semester GPA (called CGPA) and the grade of student obtained in semester and display it on the screen. 
+
+> Formula to calculate Subject percentage : Marks Obtained *100 / Total Marks 
+> Formula to calculate Subject GPA : Percentage Marks * 5 / 100 
+> Formula to calculate CGPA : [Subject1 GPA + Subject2 GPA + Subject3 GPA] / 3
+
+Detailed Description :
+
+1. Program should prompt the user toenter
+
+                i.      Total marks in subject 1
+
+              ii.      Obtained marks in subject 1
+
+After taking input from the user, it must calculate percentage and GPA of subject 1. After calculating percentage and GPA, it will display percentage and GPA on the output screen.
+
+2. Now the program will prompt the user toenter
+
+                i.      Total marksin subject 2
+
+              ii.      Obtained marks in subject 2
+
+And it will calculate percentage and GPA for subject 2 insimilar way and will display them on the screen.
+
+3. Same procedure will be adopted for subject3.
+
+4. After calculating percentage and GPA ofthree subjects, your program should calculate semester GPA (calledCGPA) and display it on the screen.
+
+5. After calculating CGPA of a student, theprogram use else-if statements or nested if statements to determinethe grade of the student and will display it on the screen. Theconditions of the if statements should be:
+
+    If Student s’ CGPA >= 4 then grade =‘A’.
+    If Student s’ CGPA >=3 && CGPA < 4 thengrade = ‘B’.    
+    If Student s’ CGPA >= 2 && CGPA < 3 thengrade = ‘C’.
+    If Student s’ CGPA >=1 && CGPA < 2 thengrade = ‘D’.
+    If Student s’ CGPA < 1 then grade =‘F’.
