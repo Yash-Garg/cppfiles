@@ -9,13 +9,14 @@ using namespace std;
 class std_details {
 	float perc, gpa, cgpa;
 	char name[30], sec, sbname[30];
-	int stdclass, stdno, sbmarks;
+	int x, y, stdclass, stdno, sbmarks;
 	public:
 		void get_details();				//Get the details of student
 		void get_marks();				//Gets the marks for subjects
-		float calc_perc(int i); 		//Calculates the percentage in each subject
-		float calc_gpa(int j); 			//Calculates the GPA in each subject
+		float calc_perc(); 				//Calculates the percentage in each subject
+		float calc_gpa(); 				//Calculates the GPA in each subject
 		float calc_cgpa(); 				//Calculates the CGPA in each subject
+		float calc_grade(); 			//Calculates the Grade in each subject
 }init;
 
 void std_details :: get_details () {
@@ -35,9 +36,14 @@ void std_details :: get_marks () {
 		cout<<"\n"<<"Enter The Name Of Subject : ";
 		cin.ignore();
 		gets(sbname);
-		cout<<"\n"<<"Enter The Marks Obtained In Subject : ";
+		cout<<"\n"<<"Enter The Marks Obtained In Subject (out of 100) : ";
 		cin>>sbmarks;
+		calc_perc();
 	}
+}
+
+float std_details :: calc_perc () {
+	x = (sbmarks*100)/100;
 }
 
 int main () {
