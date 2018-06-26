@@ -12,11 +12,11 @@ class std_details {
 	char name[30], sec, grade;
 	int stdclass, stdno;
 	public:
-		void get_details();				//Get the details of student
-		void get_marks_gpa_perc();			//Gets the marks for subjects
-		float calc_cgpa(); 				//Calculates the CGPA in each subject
-		float calc_grade(); 				//Calculates the Grade in each subject
-		void show_out();				//Shows the output to user
+		void get_details();							//Get the details of student
+		void get_marks_gpa_perc();						//Gets the marks for subjects
+		float calc_cgpa(); 							//Calculates the CGPA in each subject
+		float calc_grade(); 							//Calculates the Grade in each subject
+		void show_out();							//Shows the output to user
 }init;
 
 void std_details :: get_details () {
@@ -36,17 +36,18 @@ void std_details :: get_details () {
 }
 
 void std_details :: get_marks_gpa_perc () {
-    tmarks = 100 ;						//Assigns the total marks 100
+    tmarks = 100 ;									//Assigns the total marks 100
     cgpa = 0;
 	for(int i=0 ; i<3 ; i++) {
 		cout<<"\n"<<"Enter the marks for subject "<<i+1<<" : ";
 	   	cin>>sbmarks[i];
-		perc[i] = ( sbmarks[i] / tmarks ) * 100.0 ;	//Calculates the percentage in each subject
-		gpa[i] = ( perc[i] * 5.0 ) / 100.0;		//Calculates the GPA in each subject
+		perc[i] = ( sbmarks[i] / tmarks ) * 100.0 ;				//Calculates the percentage in each subject	
+		gpa[i] = ( perc[i] * 5.0 ) / 100.0;					//Calculates the GPA in each subject
+	//	cgpa = ( ( cgpa + gpa[i] ) / 3 );					//Calculates the CGPA of student
 	}
 }
 
-/* void std_details :: calc_grade () {
+float std_details :: calc_grade () {
 	if (cgpa>=4) {
 		grade = 'A';
 	}
@@ -57,12 +58,12 @@ void std_details :: get_marks_gpa_perc () {
 		grade = 'C';
 	}
 	else if (cgpa>=1) {
-		grade = 'D'
+		grade = 'D';
 	}
 	else {
 		cout<<"\n"<<"You have failed !!";
 	}
-} */
+}
 
 void std_details :: show_out () {
 	system("cls");
@@ -76,12 +77,14 @@ void std_details :: show_out () {
 			cout<<"\n"<<"Percentage in subject "<<i+1<<" : "<<perc[i]<<"%"<<endl;
 			cout<<"\n"<<"GPA in subject "<<i+1<<" : "<<gpa[i]<<endl;
 		}
+	cout<<"\n"<<"CGPA of "<<name<<" is : "<<cgpa<<endl;
+	cout<<"\n"<<"Grade of "<<name<<" is : "<<grade;
 }
 
 int main () {
 	init.get_details();
 	init.get_marks_gpa_perc();
-//	init.calc_grade();
+	init.calc_grade();
 	init.show_out();
 	return 0;
 }
