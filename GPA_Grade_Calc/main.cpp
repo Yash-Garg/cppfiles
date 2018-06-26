@@ -9,7 +9,7 @@ using namespace std;
 int i;
 class std_details {
 	float perc[2], gpa[2], tmarks, cgpa, sbmarks[2];
-	char name[30], sec;
+	char name[30], sec, grade;
 	int stdclass, stdno;
 	public:
 		void get_details();				//Get the details of student
@@ -37,7 +37,7 @@ void std_details :: get_details () {
 
 void std_details :: get_marks_gpa_perc () {
     tmarks = 100 ;						//Assigns the total marks 100
-	cgpa == 0;
+    cgpa == 0;
 	for(int i=0 ; i<=2 ; i++) {
 		cout<<"\n"<<"Enter the marks for subject "<<i+1<<" : ";
 	    cin>>sbmarks[i];
@@ -46,15 +46,29 @@ void std_details :: get_marks_gpa_perc () {
 	}
 }
 
-/*void std_details :: calc_cgpa () {
-	
-}*/
+/* void std_details :: calc_grade () {
+	if (cgpa>=4) {
+		grade = 'A';
+	}
+	else if (cgpa>=3) {
+		grade = 'B';
+	}
+	else if (cgpa>=2) {
+		grade = 'C';
+	}
+	else if (cgpa>=1) {
+		grade = 'D'
+	}
+	else {
+		cout<<"\n"<<"You have failed !!";
+	}
+} */
 
 void std_details :: show_out () {
 	system("cls");
 	cout<<"\n"<<"Student's Name : ";
 	puts(name);
-	couts<<"\n"<<"Roll Number : "<<stdno<<endl;
+	cout<<"\n"<<"Roll Number : "<<stdno<<endl;
 	cout<<"\n"<<"Class : "<<stdclass<<endl;
 	cout<<"\n"<<"Section : "<<sec<<endl;	
 		for(int i=0 ; i<=2 ; i++) {
@@ -67,6 +81,7 @@ void std_details :: show_out () {
 int main () {
 	init.get_details();
 	init.get_marks_gpa_perc();
+	init.calc_grade();
 	init.show_out();
 	return 0;
 }
