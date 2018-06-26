@@ -17,6 +17,7 @@ class std_details {
 		float calc_gpa(); 				//Calculates the GPA in each subject
 		float calc_cgpa(); 				//Calculates the CGPA in each subject
 		float calc_grade(); 			//Calculates the Grade in each subject
+		void show_out();
 }init;
 
 void std_details :: get_details () {
@@ -46,8 +47,23 @@ void std_details :: get_marks () {
 	}
 }
 
+void std_details :: show_out () {
+	system("cls");
+	cout<<"\n"<<"Student's Name : ";
+	puts(name);
+	cout<<"\n"<<"Roll Number : "<<stdno<<endl;
+	cout<<"\n"<<"Class : "<<stdclass<<endl;
+	cout<<"\n"<<"Section : "<<sec<<endl;	
+		for(int i=0 ; i<=2 ; i++) {
+			cout<<"\n"<<"Marks of subject "<<i+1<<" : "<<sbmarks[i]<<endl;
+			cout<<"\n"<<"Percentage in subject "<<i+1<<" : "<<perc[i]<<endl;
+			cout<<"\n"<<"GPA in subject "<<i+1<<" : "<<gpa[i]<<endl;
+		}
+}
+
 int main () {
 	init.get_details();
 	init.get_marks();
+	init.show_out();
 	return 0;
 }
