@@ -8,7 +8,7 @@
 using namespace std;
 int i;
 class std_details {
-	float perc[2], gpa[2], tmarks, cgpa, sbmarks[2];
+	float perc[3], gpa[3], tmarks, cgpa, sbmarks[3];
 	char name[30], sec, grade;
 	int stdclass, stdno;
 	public:
@@ -38,11 +38,11 @@ void std_details :: get_details () {
 void std_details :: get_marks_gpa_perc () {
     tmarks = 100 ;						//Assigns the total marks 100
     cgpa = 0;
-	for(int i=0 ; i<=2 ; i++) {
+	for(int i=0 ; i<3 ; i++) {
 		cout<<"\n"<<"Enter the marks for subject "<<i+1<<" : ";
 	   	cin>>sbmarks[i];
-		perc[i] = sbmarks[i]*100/tmarks;		//Calculates the percentage in each subject
-		gpa[i] = perc[i] * 5 / 100;			//Calculates the GPA in each subject
+		perc[i] = ( sbmarks[i] / tmarks ) * 100.0 ;	//Calculates the percentage in each subject
+		gpa[i] = ( perc[i] * 5.0 ) / 100.0;		//Calculates the GPA in each subject
 	}
 }
 
@@ -71,7 +71,7 @@ void std_details :: show_out () {
 	cout<<"\n"<<"Roll Number : "<<stdno<<endl;
 	cout<<"\n"<<"Class : "<<stdclass<<endl;
 	cout<<"\n"<<"Section : "<<sec<<endl;	
-		for(int i=0 ; i<=2 ; i++) {
+		for(int i=0 ; i<3 ; i++) {
 			cout<<"\n"<<"Marks of subject "<<i+1<<" : "<<sbmarks[i]<<endl;
 			cout<<"\n"<<"Percentage in subject "<<i+1<<" : "<<perc[i]<<"%"<<endl;
 			cout<<"\n"<<"GPA in subject "<<i+1<<" : "<<gpa[i]<<endl;
