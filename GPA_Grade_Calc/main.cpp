@@ -7,9 +7,9 @@
 using namespace std;
 int i;
 class std_details {
-	float perc, gpa, cgpa;
+	float perc[2], gpa[2], tmarks;
 	char name[30], sec;
-	int x, y, stdclass, stdno, sbmarks[2];
+	int cgpa, stdclass, stdno, sbmarks[2];
 	public:
 		void get_details();				//Get the details of student
 		void get_marks();				//Gets the marks for subjects
@@ -21,31 +21,29 @@ class std_details {
 
 void std_details :: get_details () {
 	Sleep(500);
-	cout<<"\n"<<"Enter The Roll Number : ";
+	cout<<"\n"<<"Enter the roll number : ";
 	cin>>stdno;
 	cin.ignore();
 	Sleep(500);
-	cout<<"\n"<<"Enter The Student's Name : ";
+	cout<<"\n"<<"Enter the student's name : ";
 	gets(name);
 	Sleep(500);
-	cout<<"\n"<<"Enter The Class : ";
+	cout<<"\n"<<"Enter the class : ";
 	cin>>stdclass;
 	Sleep(500);
-	cout<<"\n"<<"Enter The Section : ";
+	cout<<"\n"<<"Enter the section : ";
 	cin>>sec;
 }
 
 void std_details :: get_marks () {
-	for (i=0;i<=2;i++) {
-		Sleep(500);
-		cout<<"\n"<<"Enter The Marks Obtained In Subject (out of 100) : ";
-		cin>>sbmarks[i];
-		calc_perc();
+    tmarks = 100 ;					//Assigns the total marks 100
+	cgpa = 0;
+	for(int i=0 ; i<=2 ; i++) {
+		cout<<"\n"<<"Enter the marks for subject "<<i+1<<" : ";
+	    cin>>sbmarks[i];
+		perc[i] = sbmarks[i]*100/tmarks;
+		gpa[i] = perc[i] * 5 / 100;
 	}
-}
-
-float std_details :: calc_perc () {
-	x = (sbmarks[i]*100)/100;
 }
 
 int main () {
