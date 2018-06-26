@@ -40,7 +40,7 @@ void std_details :: get_marks_gpa_perc () {
     cgpa == 0;
 	for(int i=0 ; i<=2 ; i++) {
 		cout<<"\n"<<"Enter the marks for subject "<<i+1<<" : ";
-	    cin>>sbmarks[i];
+	    	cin>>sbmarks[i];
 		perc[i] = sbmarks[i]*100/tmarks;		//Calculates the percentage in each subject
 		gpa[i] = perc[i] * 5 / 100;			//Calculates the GPA in each subject
 	}
