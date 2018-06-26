@@ -12,12 +12,13 @@ class std_details {
 	char name[30], sec, grade;
 	int stdclass, stdno;
 	public:
+	public:
+		void start();
 		void get_details();							//Get the details of student
 		void get_marks_gpa_perc();						//Gets the marks for subjects
+		void show_out();							//Shows the output to user
 		float calc_cgpa(); 							//Calculates the CGPA in each subject
 		float calc_grade(); 							//Calculates the Grade in each subject
-		void show_out();							//Shows the output to user
-		void start();
 }init;
 
 void std_details :: get_details () {
