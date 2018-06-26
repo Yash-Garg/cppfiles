@@ -43,7 +43,7 @@ void std_details :: get_marks_gpa_perc () {
 	   	cin>>sbmarks[i];
 		perc[i] = ( sbmarks[i] / tmarks ) * 100.0 ;				//Calculates the percentage in each subject	
 		gpa[i] = ( perc[i] * 5.0 ) / 100.0;					//Calculates the GPA in each subject
-	//	cgpa = ( ( cgpa + gpa[i] ) / 3 );					//Calculates the CGPA of student
+		cgpa += gpa[i] / 3 ;							//Calculates the CGPA of student
 	}
 }
 
