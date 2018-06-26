@@ -37,10 +37,10 @@ void std_details :: get_details () {
 
 void std_details :: get_marks_gpa_perc () {
     tmarks = 100 ;						//Assigns the total marks 100
-    cgpa == 0;
+    cgpa = 0;
 	for(int i=0 ; i<=2 ; i++) {
 		cout<<"\n"<<"Enter the marks for subject "<<i+1<<" : ";
-	    	cin>>sbmarks[i];
+	   	cin>>sbmarks[i];
 		perc[i] = sbmarks[i]*100/tmarks;		//Calculates the percentage in each subject
 		gpa[i] = perc[i] * 5 / 100;			//Calculates the GPA in each subject
 	}
@@ -81,7 +81,7 @@ void std_details :: show_out () {
 int main () {
 	init.get_details();
 	init.get_marks_gpa_perc();
-	init.calc_grade();
+//	init.calc_grade();
 	init.show_out();
 	return 0;
 }
