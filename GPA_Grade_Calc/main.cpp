@@ -17,6 +17,7 @@ class std_details {
 		float calc_cgpa(); 							//Calculates the CGPA in each subject
 		float calc_grade(); 							//Calculates the Grade in each subject
 		void show_out();							//Shows the output to user
+		void start();
 }init;
 
 void std_details :: get_details () {
@@ -81,10 +82,15 @@ void std_details :: show_out () {
 	cout<<"\n"<<"Grade of "<<name<<" is : "<<grade;
 }
 
+void std_details :: start () {
+	get_details();
+	get_marks_gpa_perc();
+	calc_grade();
+	show_out();
+	Sleep(500);
+}
+
 int main () {
-	init.get_details();
-	init.get_marks_gpa_perc();
-	init.calc_grade();
-	init.show_out();
+	init.start();
 	return 0;
 }
