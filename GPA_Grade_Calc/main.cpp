@@ -8,6 +8,10 @@
 using namespace std;
 int i;
 char response;
+ifstream fin;
+char pwd[9];
+char pass[9];
+
 class std_details {
 	float perc[3], gpa[3], tmarks, cgpa, sbmarks[3];
 	char name[30], sec, grade;
@@ -20,6 +24,7 @@ class std_details {
 		void show_out();							//Shows the output to user
 		float calc_cgpa(); 							//Calculates the CGPA in each subject
 		float calc_grade(); 							//Calculates the Grade in each subject
+		void password();							//Function for password
 }init;
 
 void std_details :: get_details () {
@@ -101,6 +106,7 @@ void std_details :: restart () {
 	cin>>response;
 	if (response == 'Y' || response == 'y') {
 		system("cls");
+		password();
 		start();
 		cout<<endl<<"THANKS FOR USING THE PROGRAM !!";
 		cout<<endl;
@@ -117,16 +123,56 @@ void std_details :: restart () {
 	}
 }
 
+void std_details :: password () {
+	cout<<"Enter The Password To Run The Program : ";
+	while(i<8) {
+		pwd[i]=getch();
+		if (pwd[i]==8 && i>0) {
+			cout<<"\b \b";
+			--i;
+		}
+		else if	(pwd[i]==13) {
+			goto end;
+		}
+		else if (pwd[i]!=8 && pwd[i]!=13) {
+			cout<<"*";
+			++i;
+		}
+	}
+	end:
+	if (strcmp(pwd , pass)==0) {
+		cout<<endl<<"Access Granted !!";
+		Sleep(1000);
+		system("cls");
+		start();
+		cout<<endl;
+		Sleep(200);
+	}
+	else {
+	cout<<endl<<"Access Denied !!";
+	cout<<endl;
+	exit(0);
+	}
+}
+
 void std_details :: start () {
 	get_details();
 	get_marks_gpa_perc();
+	Sleep(1000);
 	calc_grade();
-	show_out();	
+	show_out();
+	Sleep(5000);
+	system("cls");
 	restart();
 	Sleep(500);
 }
 
 int main () {
+	fin.open("pass.txt", ios :: in);
+	fin.get(pass , 9);
+	Sleep(500);
+	init.password();
+	Sleep(500);
 	init.start();
 	return 0;
 }
