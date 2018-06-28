@@ -6,11 +6,14 @@
 #include<conio.h>
 #include<ctype.h>
 using namespace std;
+
+//Globally Declared Variables//
 int i;
 char response;
 ifstream fin;
 char pwd[9];
 char pass[9];
+//..........................//
 
 class std_details {
 	float perc[3], gpa[3], tmarks, cgpa, sbmarks[3];
@@ -18,14 +21,14 @@ class std_details {
 	int stdclass, stdno;
 	public:
 		void start();
-		void restart();
+		void restart();								//Re-runs the program
 		void get_details();							//Get the details of student
 		void get_marks_gpa_perc();						//Gets the marks for subjects
 		void show_out();							//Shows the output to user
 		float calc_cgpa(); 							//Calculates the CGPA in each subject
 		float calc_grade(); 							//Calculates the Grade in each subject
 		void password();							//Function for password
-}init;
+}init;											//Class object declared
 
 void std_details :: get_details () {
 	Sleep(500);
@@ -140,7 +143,7 @@ void std_details :: password () {
 		}
 	}
 	end:
-	if (strcmp(pwd , pass)==0) {
+	if (strcmp(pwd , pass)==0) {							//Compares the password with 'pass' variable
 		cout<<endl<<"Access Granted !!";
 		Sleep(1000);
 		system("cls");
@@ -168,8 +171,8 @@ void std_details :: start () {
 }
 
 int main () {
-	fin.open("pass.txt", ios :: in);
-	fin.get(pass , 9);
+	fin.open("pass.txt", ios :: in);						//Gets input from the file 'pass.txt'
+	fin.get(pass , 9);								//Stores password in a varibale 'pass'
 	Sleep(500);
 	init.password();
 	Sleep(500);
