@@ -30,6 +30,8 @@ class std_details {
 		void password();							//Function for password
 }init;											//Class object declared
 
+//Class function starts here//
+
 void std_details :: get_details () {
 	Sleep(500);
 	cout<<"\n"<<"Enter the roll number : ";
@@ -169,6 +171,8 @@ void std_details :: start () {
 	restart();
 	Sleep(500);
 }
+
+//Class function ends here//
 
 int main () {
 	fin.open("pass.txt", ios :: in);						//Gets input from the file 'pass.txt'
