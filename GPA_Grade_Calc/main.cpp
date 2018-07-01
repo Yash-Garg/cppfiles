@@ -16,10 +16,11 @@ char pass[9];
 //................................//
 
 class std_details {
-	float perc[3], gpa[3], tmarks, cgpa, sbmarks[3];
-	char name[30], sec, grade;
-	int stdclass, stdno;
-	public:
+	private :
+		float perc[3], gpa[3], tmarks, cgpa, sbmarks[3];
+		char name[30], sec, grade;
+		int stdclass, stdno;
+	public :
 		void start();
 		void restart();							//Re-runs the program
 		void get_details();						//Get the details of student
