@@ -83,28 +83,28 @@ float std_details :: calc_grade () {
 void std_details :: show_out () {
 	system("cls");
 	Sleep(500);
-	cout<<"\n"<<"Student's Name : ";
+	cout<<"\nStudent's Name : ";
 	puts(name);
 	Sleep(500);
-	cout<<"\n"<<"Roll Number : "<<stdno<<endl;
+	cout<<"\nRoll Number : "<<stdno<<endl;
 	Sleep(500);
-	cout<<"\n"<<"Class : "<<stdclass<<endl;
+	cout<<"\nClass : "<<stdclass<<endl;
 	Sleep(500);
-	cout<<"\n"<<"Section : "<<sec<<endl;
+	cout<<"\nSection : "<<sec<<endl;
 	cout<<"\n#################################"<<endl;	
 		for(int i=0 ; i<3 ; i++) {
 			Sleep(500);
-			cout<<"\n"<<"Marks of subject "<<i+1<<" : "<<sbmarks[i]<<endl;
+			cout<<"\nMarks of subject "<<i+1<<" : "<<sbmarks[i]<<endl;
 			Sleep(500);
-			cout<<"\n"<<"Percentage in subject "<<i+1<<" : "<<perc[i]<<"%"<<endl;
+			cout<<"\nPercentage in subject "<<i+1<<" : "<<perc[i]<<"%"<<endl;
 			Sleep(500);
-			cout<<"\n"<<"GPA in subject "<<i+1<<" : "<<gpa[i]<<endl;
+			cout<<"\nGPA in subject "<<i+1<<" : "<<gpa[i]<<endl;
 			Sleep(500);
 			cout<<"\n#################################"<<endl;
 		}
-	cout<<"\n"<<"CGPA of "<<name<<" is : "<<cgpa<<endl;
+	cout<<"\nCGPA of "<<name<<" is : "<<cgpa<<endl;
 	Sleep(500);
-	cout<<"\n"<<"Grade of "<<name<<" is : "<<grade;
+	cout<<"\nGrade of "<<name<<" is : "<<grade;
 	cout<<endl;
 	cout<<"\n#################################";
 }
