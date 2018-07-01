@@ -166,7 +166,10 @@ void std_details :: start () {
 	Sleep(1000);
 	calc_grade();
 	show_out();
-	Sleep(5000);
+	Sleep(1000);
+	cout<<endl;
+	cout<<"\nPress any key to continue..";
+	getch();
 	system("cls");
 	restart();
 	Sleep(500);
