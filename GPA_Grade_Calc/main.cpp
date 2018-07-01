@@ -35,17 +35,17 @@ class std_details {
 
 void std_details :: get_details () {
 	Sleep(500);
-	cout<<"\n"<<"Enter the roll number : ";
+	cout<<"\nEnter the roll number : ";
 	cin>>stdno;
 	cin.ignore();
 	Sleep(500);
-	cout<<"\n"<<"Enter the student's name : ";
+	cout<<"\nEnter the student's name : ";
 	gets(name);
 	Sleep(500);
-	cout<<"\n"<<"Enter the class : ";
+	cout<<"\nEnter the class : ";
 	cin>>stdclass;
 	Sleep(500);
-	cout<<"\n"<<"Enter the section : ";
+	cout<<"\nEnter the section : ";
 	cin>>sec;
 }
 
@@ -54,7 +54,7 @@ void std_details :: get_marks_gpa_perc () {
     cgpa = 0;
 	for(int i=0 ; i<3 ; i++) {
 		Sleep(500);
-		cout<<"\n"<<"Enter the marks for subject "<<i+1<<" : ";
+		cout<<"\nEnter the marks for subject "<<i+1<<" : ";
 		cin>>sbmarks[i];
 		perc[i] = ( sbmarks[i] / tmarks ) * 100.0 ;			//Calculates the percentage in each subject	
 		gpa[i] = ( perc[i] * 5.0 ) / 100.0;				//Calculates the GPA in each subject
@@ -76,39 +76,39 @@ float std_details :: calc_grade () {
 		grade = 'D';
 	}
 	else {
-		cout<<"\n"<<"You have failed !!";
+		cout<<"\nYou have failed !!";
 	}
 }
 
 void std_details :: show_out () {
 	system("cls");
 	Sleep(500);
-	cout<<"\n"<<"Student's Name : ";
+	cout<<"\nStudent's Name : ";
 	puts(name);
 	Sleep(500);
-	cout<<"\n"<<"Roll Number : "<<stdno<<endl;
+	cout<<"\nRoll Number : "<<stdno<<endl;
 	Sleep(500);
-	cout<<"\n"<<"Class : "<<stdclass<<endl;
+	cout<<"\nClass : "<<stdclass<<endl;
 	Sleep(500);
-	cout<<"\n"<<"Section : "<<sec<<endl;	
+	cout<<"\nSection : "<<sec<<endl;	
 		for(int i=0 ; i<3 ; i++) {
 			Sleep(500);
-			cout<<"\n"<<"Marks of subject "<<i+1<<" : "<<sbmarks[i]<<endl;
+			cout<<"\nMarks of subject "<<i+1<<" : "<<sbmarks[i]<<endl;
 			Sleep(500);
-			cout<<"\n"<<"Percentage in subject "<<i+1<<" : "<<perc[i]<<"%"<<endl;
+			cout<<"\nPercentage in subject "<<i+1<<" : "<<perc[i]<<"%"<<endl;
 			Sleep(500);
-			cout<<"\n"<<"GPA in subject "<<i+1<<" : "<<gpa[i]<<endl;
+			cout<<"\nGPA in subject "<<i+1<<" : "<<gpa[i]<<endl;
 		}
 	Sleep(500);
-	cout<<"\n"<<"CGPA of "<<name<<" is : "<<cgpa<<endl;
+	cout<<"\nCGPA of "<<name<<" is : "<<cgpa<<endl;
 	Sleep(500);
-	cout<<"\n"<<"Grade of "<<name<<" is : "<<grade;
+	cout<<"\nGrade of "<<name<<" is : "<<grade;
 }
 
 void std_details :: restart () {
 	Sleep(500);
 	cout<<endl;
-	cout<<"\n"<<"Do you want to re-run the program (Y/N) ?? : ";
+	cout<<"\nDo you want to re-run the program (Y/N) ?? : ";
 	cin>>response;
 	if (response == 'Y' || response == 'y') {
 		system("cls");
@@ -122,7 +122,7 @@ void std_details :: restart () {
 		exit(0);
 	}
 	else {
-		cout<<"\n"<<"AW SNAP !! WRONG INPUT !!";
+		cout<<"\nAW SNAP !! WRONG INPUT !!";
 		cout<<endl;
 		exit(0);
 	}
