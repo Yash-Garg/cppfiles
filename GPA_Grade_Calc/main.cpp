@@ -76,33 +76,37 @@ float std_details :: calc_grade () {
 		grade = 'D';
 	}
 	else {
-		cout<<"\nYou have failed !!";
+		grade = 'E';
 	}
 }
 
 void std_details :: show_out () {
 	system("cls");
 	Sleep(500);
-	cout<<"\nStudent's Name : ";
+	cout<<"\n"<<"Student's Name : ";
 	puts(name);
 	Sleep(500);
-	cout<<"\nRoll Number : "<<stdno<<endl;
+	cout<<"\n"<<"Roll Number : "<<stdno<<endl;
 	Sleep(500);
-	cout<<"\nClass : "<<stdclass<<endl;
+	cout<<"\n"<<"Class : "<<stdclass<<endl;
 	Sleep(500);
-	cout<<"\nSection : "<<sec<<endl;	
+	cout<<"\n"<<"Section : "<<sec<<endl;
+	cout<<"\n#################################"<<endl;	
 		for(int i=0 ; i<3 ; i++) {
 			Sleep(500);
-			cout<<"\nMarks of subject "<<i+1<<" : "<<sbmarks[i]<<endl;
+			cout<<"\n"<<"Marks of subject "<<i+1<<" : "<<sbmarks[i]<<endl;
 			Sleep(500);
-			cout<<"\nPercentage in subject "<<i+1<<" : "<<perc[i]<<"%"<<endl;
+			cout<<"\n"<<"Percentage in subject "<<i+1<<" : "<<perc[i]<<"%"<<endl;
 			Sleep(500);
-			cout<<"\nGPA in subject "<<i+1<<" : "<<gpa[i]<<endl;
+			cout<<"\n"<<"GPA in subject "<<i+1<<" : "<<gpa[i]<<endl;
+			Sleep(500);
+			cout<<"\n#################################"<<endl;
 		}
+	cout<<"\n"<<"CGPA of "<<name<<" is : "<<cgpa<<endl;
 	Sleep(500);
-	cout<<"\nCGPA of "<<name<<" is : "<<cgpa<<endl;
-	Sleep(500);
-	cout<<"\nGrade of "<<name<<" is : "<<grade;
+	cout<<"\n"<<"Grade of "<<name<<" is : "<<grade;
+	cout<<endl;
+	cout<<"\n#################################";
 }
 
 void std_details :: restart () {
@@ -146,7 +150,7 @@ void std_details :: password () {
 	}
 	end:
 	if (strcmp(pwd , pass)==0) {						//Compares the password with 'pass' variable
-		cout<<endl<<"Access Granted !!";
+		cout<<endl<<endl<<"Access Granted !!";
 		Sleep(1000);
 		system("cls");
 		start();
