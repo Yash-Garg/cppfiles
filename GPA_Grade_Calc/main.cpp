@@ -21,14 +21,14 @@ class std_details {
 	int stdclass, stdno;
 	public:
 		void start();
-		void restart();								//Re-runs the program
-		void get_details();							//Get the details of student
-		void get_marks_gpa_perc();						//Gets the marks for subjects
-		void show_out();							//Shows the output to user
-		float calc_cgpa(); 							//Calculates the CGPA in each subject
-		float calc_grade(); 							//Calculates the Grade in each subject
-		void password();							//Function for password
-}init;											//Class object declared
+		void restart();							//Re-runs the program
+		void get_details();						//Get the details of student
+		void get_marks_gpa_perc();					//Gets the marks for subjects
+		void show_out();						//Shows the output to user
+		float calc_cgpa(); 						//Calculates the CGPA in each subject
+		float calc_grade(); 						//Calculates the Grade in each subject
+		void password();						//Function for password
+}init;										//Class object declared
 
 //Class function starts here//
 
@@ -49,15 +49,15 @@ void std_details :: get_details () {
 }
 
 void std_details :: get_marks_gpa_perc () {
-    tmarks = 100 ;									//Assigns the total marks 100
+    tmarks = 100 ;								//Assigns the total marks 100
     cgpa = 0;
 	for(int i=0 ; i<3 ; i++) {
 		Sleep(500);
 		cout<<"\n"<<"Enter the marks for subject "<<i+1<<" : ";
 		cin>>sbmarks[i];
-		perc[i] = ( sbmarks[i] / tmarks ) * 100.0 ;				//Calculates the percentage in each subject	
-		gpa[i] = ( perc[i] * 5.0 ) / 100.0;					//Calculates the GPA in each subject
-		cgpa += gpa[i] / 3 ;							//Calculates the CGPA of student
+		perc[i] = ( sbmarks[i] / tmarks ) * 100.0 ;			//Calculates the percentage in each subject	
+		gpa[i] = ( perc[i] * 5.0 ) / 100.0;				//Calculates the GPA in each subject
+		cgpa += gpa[i] / 3 ;						//Calculates the CGPA of student
 	}
 }
 
@@ -111,7 +111,6 @@ void std_details :: restart () {
 	cin>>response;
 	if (response == 'Y' || response == 'y') {
 		system("cls");
-		password();
 		start();
 		cout<<endl<<"THANKS FOR USING THE PROGRAM !!";
 		cout<<endl;
@@ -145,13 +144,10 @@ void std_details :: password () {
 		}
 	}
 	end:
-	if (strcmp(pwd , pass)==0) {							//Compares the password with 'pass' variable
+	if (strcmp(pwd , pass)==0) {						//Compares the password with 'pass' variable
 		cout<<endl<<"Access Granted !!";
 		Sleep(1000);
 		system("cls");
-		for( int i=0 ; i<9 ; i++{						//Emptied the pwd array, the password() function will
-			pwd[i] = '\0';							//now ask the user for password everytime
-		}
 		start();
 		cout<<endl;
 		Sleep(200);
@@ -178,8 +174,8 @@ void std_details :: start () {
 //Class function ends here//
 
 int main () {
-	fin.open("pass.txt", ios :: in);						//Gets input from the file 'pass.txt'
-	fin.get(pass , 9);								//Stores password in a varibale 'pass'
+	fin.open("pass.txt", ios :: in);					//Gets input from the file 'pass.txt'
+	fin.get(pass , 9);							//Stores password in a varibale 'pass'
 	Sleep(500);
 	init.password();
 	Sleep(500);
