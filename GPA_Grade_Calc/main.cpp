@@ -7,13 +7,13 @@
 #include<ctype.h>
 using namespace std;
 
-//Globally Declared Variables//
+//...Globally Declared Variables...//
 int i;
 char response;
 ifstream fin;
 char pwd[9];
 char pass[9];
-//..........................//
+//................................//
 
 class std_details {
 	float perc[3], gpa[3], tmarks, cgpa, sbmarks[3];
@@ -30,7 +30,7 @@ class std_details {
 		void password();						//Function for password
 }init;										//Class object declared
 
-//Class function starts here//
+//......Class function starts here......//
 
 void std_details :: get_details () {
 	Sleep(500);
@@ -171,7 +171,7 @@ void std_details :: start () {
 	Sleep(500);
 }
 
-//Class function ends here//
+//......Class function ends here......//
 
 int main () {
 	fin.open("pass.txt", ios :: in);					//Gets input from the file 'pass.txt'
