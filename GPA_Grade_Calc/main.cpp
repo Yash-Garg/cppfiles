@@ -149,6 +149,9 @@ void std_details :: password () {
 		cout<<endl<<"Access Granted !!";
 		Sleep(1000);
 		system("cls");
+		for( int i=0 ; i<9 ; i++{		//nerd.deus: emptied the pwd array, the password() function will
+			pwd[i] = '\0';			//now ask the user for password everytime although IDTS it is required but 
+		}					//here you go :)
 		start();
 		cout<<endl;
 		Sleep(200);
