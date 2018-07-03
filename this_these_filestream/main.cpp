@@ -5,10 +5,10 @@
 using namespace std;
 
 int main () {
-	ifstream fin;
-	fin.open("new.txt", ios :: in);
+    ifstream fin;
+    fin.open("new.txt", ios :: in);
     char x[30];
-    int y, z;
+    int y=0, z=0;
     while ( !fin.eof()) {
         fin>>x;
         if(strcmpi(x , "this")==0) {
