@@ -5,12 +5,14 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<ctype.h>
+#include "lexicon.h"								//Custom header file
 using namespace std;
 
 //...Globally Declared Variables...//
 int i;
 char response;
 ifstream fin;
+char x[5000];
 char pwd[9];
 char pass[9];
 //................................//
@@ -32,6 +34,14 @@ class std_details {
 }init;										//Class object declared
 
 //......Class function starts here......//
+
+void std_details :: animation () {
+	strcpy(x, ascii_heading( "GRADE Calculator" ));
+	rand_animation(x, 't', 500, 1);
+	cout<<"\nPress any key to continue....";
+	getch();
+	system("cls");
+}
 
 void std_details :: get_details () {
 	Sleep(500);
@@ -165,6 +175,7 @@ void std_details :: password () {
 }
 
 void std_details :: start () {
+	animation();
 	get_details();
 	get_marks_gpa_perc();
 	Sleep(1000);
