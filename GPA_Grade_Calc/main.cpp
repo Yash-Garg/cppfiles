@@ -5,16 +5,13 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<ctype.h>
-#include "lexicon.h"								//Custom header file
+#include "lexicon.h"									// Custom header file (included in MinGW64)
 using namespace std;
 
 //...Globally Declared Variables...//
-int i;
-char response;
+int i=0;
+char response, pwd[9], pass[9], x[5000];
 ifstream fin;
-char x[5000];
-char pwd[9];
-char pass[9];
 //................................//
 
 class std_details {
@@ -23,25 +20,18 @@ class std_details {
 		char name[30], sec, grade;
 		int stdclass, stdno;
 	public :
+		void animation();
 		void start();
-		void restart();							//Re-runs the program
-		void get_details();						//Get the details of student
-		void get_marks_gpa_perc();					//Gets the marks for subjects
-		void show_out();						//Shows the output to user
-		float calc_cgpa(); 						//Calculates the CGPA in each subject
-		float calc_grade(); 						//Calculates the Grade in each subject
-		void password();						//Function for password
-}init;										//Class object declared
+		void restart();								// Re-runs the program
+		void get_details();							// Get the details of student
+		void get_marks_gpa_perc();						// Gets the marks for subjects
+		void show_out();							// Shows the output to user
+		float calc_cgpa(); 							// Calculates the CGPA in each subject
+		float calc_grade(); 							// Calculates the Grade in each subject
+		void password(char* password_array, char hide_char, int max_length);	// Function for password (input/checking)
+}init;											// Class object declared
 
 //......Class function starts here......//
-
-void std_details :: animation () {
-	strcpy(x, ascii_heading( "GRADE Calculator" ));
-	rand_animation(x, 't', 500, 1);
-	cout<<"\nPress any key to continue....";
-	getch();
-	system("cls");
-}
 
 void std_details :: get_details () {
 	Sleep(500);
@@ -59,16 +49,24 @@ void std_details :: get_details () {
 	cin>>sec;
 }
 
+void std_details :: animation () {
+	strcpy(x, ascii_heading( "GRADE Calculator" ));
+	rand_animation(x, 't', 500, 1);
+	cout<<"\nPress any key to continue....";
+	getch();
+	system("cls");
+}
+
 void std_details :: get_marks_gpa_perc () {
-    tmarks = 100 ;								//Assigns the total marks 100
+    tmarks = 100 ;									// Assigns the total marks 100
     cgpa = 0;
 	for(int i=0 ; i<3 ; i++) {
 		Sleep(500);
 		cout<<"\nEnter the marks for subject "<<i+1<<" : ";
 		cin>>sbmarks[i];
-		perc[i] = ( sbmarks[i] / tmarks ) * 100.0 ;			//Calculates the percentage in each subject	
-		gpa[i] = ( perc[i] * 5.0 ) / 100.0;				//Calculates the GPA in each subject
-		cgpa += gpa[i] / 3 ;						//Calculates the CGPA of student
+		perc[i] = ( sbmarks[i] / tmarks ) * 100.0 ;				// Calculates the percentage in each subject	
+		gpa[i] = ( perc[i] * 5.0 ) / 100.0;					// Calculates the GPA in each subject
+		cgpa += gpa[i] / 3 ;							// Calculates the CGPA of student
 	}
 }
 
@@ -142,39 +140,91 @@ void std_details :: restart () {
 	}
 }
 
-void std_details :: password () {
-	cout<<"Enter The Password To Run The Program : ";
-	while(i<8) {
+void std_details :: password (char* password_array, char hide_char, int max_length) {
+	Sleep(500);
+	cout<<"\nEnter the password to run the program : ";
+	if(max_length < 100) {		
+		cout <<"\nPress any key to terminate...\n";
+		getch();
+		exit( 1 );
+	}
+	
+	for(int i=0; i <= max_length; i++) {
+		password_array[i] = '\0';
+	}
+	
+	char pwd[max_length + 2];
+	
+	for(int i=0; i<(max_length+2); i++) {
+		pwd[i]='\0';
+	}
+
+	while(1) {
 		pwd[i]=getch();
-		if (pwd[i]==8 && i>0) {
-			cout<<"\b \b";
-			--i;
+		
+		if(i < max_length) {
+			
+			switch(pwd[i]) {
+				
+				case 13:						// 13: Return Key
+					pwd[i] = '\0';
+					cout << endl;
+					goto ESC;
+				case 8:							// 8: Backspace
+					if(i <= 0) {					// Only input password can get erased
+						pwd[i] = '\0';
+					}
+					else {
+						cout << "\b \b";
+						pwd[i] = '\0';
+						i = i - 1;
+					}
+					break;
+				case 27:						// 27: Esc Key
+					pwd[i] = '\0';					// Clear this char
+					break;
+				default:
+					if(hide_char == 0) {  				// No special char used if 0
+						cout << pwd[i];
+						i++;
+					}
+					else {
+						cout << hide_char;
+						i++;
+					}
+			}
 		}
-		else if	(pwd[i]==13) {
-			goto end;
-		}
-		else if (pwd[i]!=8 && pwd[i]!=13) {
-			cout<<"*";
-			++i;
+		else {
+			switch(pwd[i]) {
+				case 13:
+					pwd[i] = '\0';
+					cout << endl;
+					goto ESC;
+				case 8:
+					cout << "\b \b";
+					pwd[i] = '\0';
+					i = i - 1;
+					break;
+				default:
+					break;						// No data entry after maximum limit
+			}
 		}
 	}
-	end:
-	if (strcmp(pwd , pass)==0) {						//Compares the password with 'pass' variable
-		cout<<endl<<endl<<"Access Granted !!";
-		Sleep(1000);
-		system("cls");
-		start();
+	
+	ESC:
+	for(int i=0; i < max_length; i++) {
+		password_array[i] = pwd[i];
+	}
+		Sleep(500);
+		cout<<"\nAccess Granted !!";
 		cout<<endl;
-		Sleep(200);
-	}
-	else {
-	cout<<endl<<"Access Denied !!";
-	cout<<endl;
-	exit(0);
-	}
+		Sleep(500);
+		cout<<"\nPress any key to continue..";
+		getch();
+	return;
 }
 
-void std_details :: start () {
+void std_details :: start () {								// Contains all the fuctions sequence wise
 	animation();
 	get_details();
 	get_marks_gpa_perc();
@@ -183,7 +233,7 @@ void std_details :: start () {
 	show_out();
 	Sleep(1000);
 	cout<<endl;
-	cout<<"\nPress any key to continue..";
+	cout<<"\nPress any key to continue....";
 	getch();
 	system("cls");
 	restart();
@@ -193,10 +243,11 @@ void std_details :: start () {
 //......Class function ends here......//
 
 int main () {
-	fin.open("pass.txt", ios :: in);					//Gets input from the file 'pass.txt'
-	fin.get(pass , 9);							//Stores password in a varibale 'pass'
+	fin.open("pass.txt", ios :: in);						// Gets input from the file 'pass.txt'
+	fin.get(pass , 9);								// Stores password in a varibale 'pass'
 	Sleep(500);
-	init.password();
+	init.password(pwd, '*', 100);
+	system("cls");
 	Sleep(500);
 	init.start();
 	return 0;
