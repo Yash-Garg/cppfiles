@@ -140,7 +140,7 @@ void std_details :: restart () {
 	}
 }
 
-void std_details :: password (char* password_array, char hide_char, int max_length) {
+/* void std_details :: password (char* password_array, char hide_char, int max_length) {
 	Sleep(500);
 	cout<<"\nEnter the password to run the program : ";
 	if(max_length < 100) {		
@@ -212,17 +212,31 @@ void std_details :: password (char* password_array, char hide_char, int max_leng
 	}
 	
 	ESC:
+	int counter = 0;
 	for(int i=0; i < max_length; i++) {
-		password_array[i] = pwd[i];
+		if( pwd[i] == pass[i] ) {
+			counter++;
+		}
 	}
+		if (counter == max_length) {
 		Sleep(500);
 		cout<<"\nAccess Granted !!";
 		cout<<endl;
 		Sleep(500);
 		cout<<"\nPress any key to continue..";
 		getch();
+	}
+	
+	else {
+		Sleep(500);
+		cout<<"\nAccess Denied !!";
+		cout<<endl;
+		Sleep(500);
+		exit(1);
+	}
+	
 	return;
-}
+} */
 
 void std_details :: start () {								// Contains all the fuctions sequence wise
 	animation();
@@ -244,9 +258,29 @@ void std_details :: start () {								// Contains all the fuctions sequence wise
 
 int main () {
 	fin.open("pass.txt", ios :: in);						// Gets input from the file 'pass.txt'
-	fin.get(pass , 9);								// Stores password in a varibale 'pass'
+	fin.getline(pass , 9); cout<<"pwd"<<pass;								// Stores password in a varibale 'pass'
 	Sleep(500);
-	init.password(pwd, '*', 100);
+//	init.password(pwd, '*', 100);
+	cout<<"\nEnter the password to run the program : ";
+	pass_entry( pwd, '*', 9 );
+	if(strcmp(pwd , pass) == 0 ) {
+		Sleep(500);
+		cout<<"\nAccess Granted !!";
+		cout<<endl;
+		Sleep(500);
+		cout<<"\nPress any key to continue..";
+		getch();
+	}
+	
+	else {
+		Sleep(500);
+		cout<<"\nAccess Denied !!";
+		cout<<pwd;
+		cout<<endl;
+		Sleep(500);
+		exit(1);
+	}
+	
 	system("cls");
 	Sleep(500);
 	init.start();
