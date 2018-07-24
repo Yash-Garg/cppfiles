@@ -258,7 +258,8 @@ void std_details :: start () {								// Contains all the fuctions sequence wise
 
 int main () {
 	fin.open("pass.txt", ios :: in);						// Gets input from the file 'pass.txt'
-	fin.getline(pass , 9); cout<<"pwd"<<pass;								// Stores password in a varibale 'pass'
+	fin.getline(pass , 9);									// Stores password in a varibale 'pass'
+	cout<<"Pwd : "<<pass<<endl;
 	Sleep(500);
 //	init.password(pwd, '*', 100);
 	cout<<"\nEnter the password to run the program : ";
@@ -275,7 +276,7 @@ int main () {
 	else {
 		Sleep(500);
 		cout<<"\nAccess Denied !!";
-		cout<<pwd;
+		cout<<endl<<"\nPass You Entered : "<<pwd;
 		cout<<endl;
 		Sleep(500);
 		exit(1);
