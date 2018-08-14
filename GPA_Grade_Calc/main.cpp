@@ -5,12 +5,12 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<ctype.h>
-#include "lexicon.h"									// Custom header file (included in MinGW64)
+#include "lexicon.h"									// Custom header file (included in Program Filesx86/Dev-Cpp/MinGW64/include)
 using namespace std;
 
 //...Globally Declared Variables...//
 int i=0;
-char response, pwd[9], pass[9], x[5000];
+char response, x[5000], pwd[9], pass[9];
 ifstream fin;
 //................................//
 
@@ -22,14 +22,14 @@ class std_details {
 	public :
 		void animation();
 		void start();
-		void restart();								// Re-runs the program
-		void get_details();							// Get the details of student
-		void get_marks_gpa_perc();						// Gets the marks for subjects
-		void show_out();							// Shows the output to user
-		float calc_cgpa(); 							// Calculates the CGPA in each subject
-		float calc_grade(); 							// Calculates the Grade in each subject
+		void restart();															// Re-runs the program
+		void get_details();														// Get the details of student
+		void get_marks_gpa_perc();												// Gets the marks for subjects
+		void show_out();														// Shows the output to user
+		float calc_cgpa(); 														// Calculates the CGPA in each subject
+		float calc_grade(); 													// Calculates the Grade in each subject
 		void password(char* password_array, char hide_char, int max_length);	// Function for password (input/checking)
-}init;											// Class object declared
+}init;																			// Class object declared
 
 //......Class function starts here......//
 
@@ -50,23 +50,30 @@ void std_details :: get_details () {
 }
 
 void std_details :: animation () {
-	strcpy(x, ascii_heading( "GRADE Calculator" ));
-	rand_animation(x, 't', 500, 1);
-	cout<<"\nPress any key to continue....";
-	getch();
+	PARAGRAPH par;
+	par.ParaData( AsciiHeading( "Grade Calculator" ) );
+	par.CenterAlign();
+//	strcpy(x, AsciiHeading( "GRADE Calculator" ));
+	ANIMATION ani;
+	ani.SetMessage( par.ReturnAsString() );
+//	rand_animation(x, 't', 500, 1);
+//	ani.Random();
+	ani.TypeWriter();
+	cout<<endl;
+	system("pause");
 	system("cls");
 }
 
 void std_details :: get_marks_gpa_perc () {
-    tmarks = 100 ;									// Assigns the total marks 100
+    tmarks = 100 ;																// Assigns the total marks 100
     cgpa = 0;
 	for(int i=0 ; i<3 ; i++) {
 		Sleep(500);
 		cout<<"\nEnter the marks for subject "<<i+1<<" : ";
 		cin>>sbmarks[i];
-		perc[i] = ( sbmarks[i] / tmarks ) * 100.0 ;				// Calculates the percentage in each subject	
-		gpa[i] = ( perc[i] * 5.0 ) / 100.0;					// Calculates the GPA in each subject
-		cgpa += gpa[i] / 3 ;							// Calculates the CGPA of student
+		perc[i] = ( sbmarks[i] / tmarks ) * 100.0 ;								// Calculates the percentage in each subject	
+		gpa[i] = ( perc[i] * 5.0 ) / 100.0;										// Calculates the GPA in each subject
+		cgpa += gpa[i] / 3 ;													// Calculates the CGPA of student
 	}
 }
 
@@ -140,104 +147,6 @@ void std_details :: restart () {
 	}
 }
 
-/* void std_details :: password (char* password_array, char hide_char, int max_length) {
-	Sleep(500);
-	cout<<"\nEnter the password to run the program : ";
-	if(max_length < 100) {		
-		cout <<"\nPress any key to terminate...\n";
-		getch();
-		exit( 1 );
-	}
-	
-	for(int i=0; i <= max_length; i++) {
-		password_array[i] = '\0';
-	}
-	
-	char pwd[max_length + 2];
-	
-	for(int i=0; i<(max_length+2); i++) {
-		pwd[i]='\0';
-	}
-
-	while(1) {
-		pwd[i]=getch();
-		
-		if(i < max_length) {
-			
-			switch(pwd[i]) {
-				
-				case 13:						// 13: Return Key
-					pwd[i] = '\0';
-					cout << endl;
-					goto ESC;
-				case 8:							// 8: Backspace
-					if(i <= 0) {					// Only input password can get erased
-						pwd[i] = '\0';
-					}
-					else {
-						cout << "\b \b";
-						pwd[i] = '\0';
-						i = i - 1;
-					}
-					break;
-				case 27:						// 27: Esc Key
-					pwd[i] = '\0';					// Clear this char
-					break;
-				default:
-					if(hide_char == 0) {  				// No special char used if 0
-						cout << pwd[i];
-						i++;
-					}
-					else {
-						cout << hide_char;
-						i++;
-					}
-			}
-		}
-		else {
-			switch(pwd[i]) {
-				case 13:
-					pwd[i] = '\0';
-					cout << endl;
-					goto ESC;
-				case 8:
-					cout << "\b \b";
-					pwd[i] = '\0';
-					i = i - 1;
-					break;
-				default:
-					break;						// No data entry after maximum limit
-			}
-		}
-	}
-	
-	ESC:
-	int counter = 0;
-	for(int i=0; i < max_length; i++) {
-		if( pwd[i] == pass[i] ) {
-			counter++;
-		}
-	}
-		if (counter == max_length) {
-		Sleep(500);
-		cout<<"\nAccess Granted !!";
-		cout<<endl;
-		Sleep(500);
-		cout<<"\nPress any key to continue..";
-		getch();
-	}
-	
-	else {
-		Sleep(500);
-		cout<<"\nAccess Denied !!";
-		cout<<endl;
-		Sleep(500);
-		exit(1);
-	}
-	
-	return;
-} */
-
 void std_details :: start () {								// Contains all the fuctions sequence wise
 	animation();
 	get_details();
@@ -247,8 +156,7 @@ void std_details :: start () {								// Contains all the fuctions sequence wise
 	show_out();
 	Sleep(1000);
 	cout<<endl;
-	cout<<"\nPress any key to continue....";
-	getch();
+	system("pause");
 	system("cls");
 	restart();
 	Sleep(500);
@@ -258,26 +166,23 @@ void std_details :: start () {								// Contains all the fuctions sequence wise
 
 int main () {
 	fin.open("pass.txt", ios :: in);						// Gets input from the file 'pass.txt'
-	fin.getline(pass , 9);								// Stores password in a varibale 'pass'
-	cout<<"Pwd : "<<pass<<endl;
-	Sleep(500);
-//	init.password(pwd, '*', 100);
+	fin.read( (char*)pwd, sizeof(pwd) );					// Stores password in a varibale 'pass'
+	system("color 02");
 	cout<<"\nEnter the password to run the program : ";
-	pass_entry( pwd, '*', 9 );
+//	pass_entry( pass, '*', 9 );
+	strcpy( pass, HidePassEntry( '*', 9 ) );
 	if(strcmp(pwd , pass) == 0 ) {
 		Sleep(500);
 		cout<<"\nAccess Granted !!";
 		cout<<endl;
 		Sleep(500);
-		cout<<"\nPress any key to continue..";
-		getch();
+		cout<<endl;
+		system("pause");
 	}
 	
 	else {
 		Sleep(500);
 		cout<<"\nAccess Denied !!";
-		cout<<endl<<"\nPass You Entered : "<<pwd;
-		cout<<endl;
 		Sleep(500);
 		exit(1);
 	}
