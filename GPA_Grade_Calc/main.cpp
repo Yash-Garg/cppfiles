@@ -1,7 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<windows.h>
-#include "lexicon.h"															// Custom header file (included in /Dev-Cpp/MinGW64/include)
+#include "lexicon.h"									// Custom header file (included in /Dev-Cpp/MinGW64/include)
 using namespace std;
 
 //...Globally Declared Variables...//
@@ -18,16 +18,16 @@ class std_details {
 		char name[30], sec, grade;
 		int stdclass, stdno;
 	public :
-		float calc_cgpa(); 														// Calculates the CGPA in each subject
-		float calc_grade(); 													// Calculates the Grade in each subject
-		void restart();															// Re-runs the program
-		void get_details();														// Get the details of student
-		void get_marks_gpa_perc();												// Gets the marks for subjects
-		void show_out();														// Shows the output to user
+		float calc_cgpa(); 							// Calculates the CGPA in each subject
+		float calc_grade(); 							// Calculates the Grade in each subject
+		void restart();								// Re-runs the program
+		void get_details();							// Get the details of student
+		void get_marks_gpa_perc();						// Gets the marks for subjects
+		void show_out();							// Shows the output to user
 		void password( char* password_array, char hide_char, int max_length );	// Function for password (input/checking)
 		void animation();
 		void start();
-}obj;																			// Class object declared
+}obj;											// Class object declared
 
 //......Class function starts here......//
 
@@ -49,7 +49,7 @@ void std_details :: get_details () {
 
 void std_details :: animation () {
 	PARAGRAPH par;
-	par.ParaData( AsciiHeading( "Grade Calculator" ) );							// Typewriter function in "lexicon.h"
+	par.ParaData( AsciiHeading( "Grade Calculator" ) );				// Typewriter function in "lexicon.h"
 	par.CenterAlign();
 	ANIMATION ani;
 	ani.SetMessage( par.ReturnAsString() );
@@ -60,15 +60,15 @@ void std_details :: animation () {
 }
 
 void std_details :: get_marks_gpa_perc () {
-    tmarks = 100 ;																// Assigns the total marks 100
+    tmarks = 100 ;									// Assigns the total marks 100
     cgpa = 0;
 	for(int i=0 ; i<3 ; i++) {
 		Sleep(500);
 		cout<<"\nEnter the marks for subject "<<i+1<<" : ";
 		cin>>sbmarks[i];
-		perc[i] = ( sbmarks[i] / tmarks ) * 100.0 ;								// Calculates the percentage in each subject	
-		gpa[i] = ( perc[i] * 5.0 ) / 100.0;										// Calculates the GPA in each subject
-		cgpa += gpa[i] / 3 ;													// Calculates the CGPA of student
+		perc[i] = ( sbmarks[i] / tmarks ) * 100.0 				// Calculates the percentage in each subject	
+		gpa[i] = ( perc[i] * 5.0 ) / 100.0;					// Calculates the GPA in each subject
+		cgpa += gpa[i] / 3 ;							// Calculates the CGPA of student
 	}
 }
 
@@ -143,9 +143,9 @@ void std_details :: restart () {
 	}
 }
 
-void std_details :: start () {													// Contains all the functions sequence wise
+void std_details :: start () {								// Contains all the functions sequence wise
 	animation();
-	system("color 07");															// Changes text color to white
+	system("color 07");								// Changes text color to white
 	get_details();
 	get_marks_gpa_perc();
 	Sleep(1000);
@@ -162,11 +162,11 @@ void std_details :: start () {													// Contains all the functions sequenc
 //......Class function ends here......//
 
 int main () {
-	fin.open( "pass.txt", ios :: in );											// Gets input from the file 'pass.txt'
-	fin.read( (char*)pwd, sizeof(pwd) );										// Stores password in a varibale 'pass'
-	system("color 03");															// Changes text color to Aqua
+	fin.open( "pass.txt", ios :: in );						// Gets input from the file 'pass.txt'
+	fin.read( (char*)pwd, sizeof(pwd) );						// Stores password in a varibale 'pass'
+	system("color 03");								// Changes text color to Aqua
 	cout<<"\nEnter the password to run the program : ";
-	strcpy( pass, HidePassEntry( '*', 9 ) );									// Password function in "lexicon.h"
+	strcpy( pass, HidePassEntry( '*', 9 ) );					// Password function in "lexicon.h"
 	if(strcmp(pwd , pass) == 0 ) {
 		Sleep(500);
 		cout<<"\nAccess Granted !!";
