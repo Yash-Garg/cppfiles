@@ -1,0 +1,3 @@
+This is my first Text file
+Using obect of fstream class
+Tet file is created with name testfile
