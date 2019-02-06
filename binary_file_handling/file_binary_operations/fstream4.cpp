@@ -4,12 +4,6 @@
 #include <string.h>
 using namespace std;
 
-
-char rep;
-student s;
-ifstream fin;
-ofstream fout;
-
 class student {
 private:
 	int rollno;
@@ -38,6 +32,11 @@ public:
 	}
 };
 
+char rep;
+student s;
+ifstream fin;
+ofstream fout;
+
 //Function to create binary file "Stud.dat"
 void create() {
 	fout.open("stud.dat", ios::out | ios::binary);
@@ -48,16 +47,6 @@ void create() {
 		cin >> rep;
 	} while (rep == 'y' || rep == 'Y');
 	fout.close();
-}
-
-//Reading and displaying records from file
-void dispfile() {
-	fin.open("stud.dat", ios::in);
-	while (!fin.eof()) {
-		fin.read((char*)&s, sizeof(s));
-		s.display();
-	}
-	fin.close();
 }
 
 void search() {
@@ -95,17 +84,15 @@ int main() {
 	int ch;
 	char ch1;
 	do {
-		cout << "\t\tFile Handling Functions Menu: \n" << endl;
+		cout << "\t\tFile Handling Function Menu: \n" << endl;
 		cout << "1. Create a file \n";
-		cout << "2. Read all the records\n";
-		cout << "3. Search and display records\n";
-		cout << endl << "Enter operation (1..3): ";
+		cout << "2. Search and display records\n";
+		cout << endl << "Enter operation (1/2): ";
 		cin >> ch;
 		system("cls");
 		switch (ch) {
 		case 1:create();break;
-		case 2:dispfile();break;
-		case 3:search();break;
+		case 2:search();break;
 		}
 		cout << "\nWant to continue (y/n): ";
 		cin >> ch1;
