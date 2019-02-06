@@ -96,7 +96,7 @@ int main() {
 		cout << "\t\tFile Handling Functions Menu: \n" << endl;
 		cout << "1. Create a file \n";
 		cout << "2. Read all the records\n";
-		cout << "3. Search and display a records\n";
+		cout << "3. Search and display records\n";
 		cout << endl << "Enter operation (1..3): ";
 		cin >> ch;
 		system("cls");
