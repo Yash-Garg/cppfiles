@@ -4,6 +4,12 @@
 #include <string.h>
 using namespace std;
 
+
+char rep;
+student s;
+ifstream fin;
+ofstream fout;
+
 class student {
 private:
 	int rollno;
@@ -32,35 +38,31 @@ public:
 	}
 };
 
-char rep;
-student s, s1;
-fstream fs, temp;
-
 //Function to create binary file "Stud.dat"
 void create() {
-	fs.open("stud.dat", ios::out | ios::binary);
+	fout.open("stud.dat", ios::out | ios::binary);
 	do {
 		s.getdata();
-		fs.write((char*)&s, sizeof(s));
+		fout.write((char*)&s, sizeof(s));
 		cout << "\nDo you want to add more records (y/n): ";
 		cin >> rep;
 	} while (rep == 'y' || rep == 'Y');
-	fs.close();
+	fout.close();
 }
 
 //Reading and displaying records from file
 void dispfile() {
-	fs.open("stud.dat", ios::in);
-	while (!fs.eof()) {
-		fs.read((char*)&s, sizeof(s));
+	fin.open("stud.dat", ios::in);
+	while (!fin.eof()) {
+		fin.read((char*)&s, sizeof(s));
 		s.display();
 	}
-	fs.close();
+	fin.close();
 }
 
 void search() {
 	int choice;
-	fs.open("stud.dat", ios::in);
+	fin.open("stud.dat", ios::in);
 	cout << "Search on the basis of:\n 1.Roll No. 2.Name \n";
 	cout << "\n Enter Choice \n";
 	cin >> choice;
@@ -68,7 +70,7 @@ void search() {
 		int mroll;
 		cout << "Enter roll number to be searched:\n";
 		cin >> mroll;
-		while (fs.read((char*)&s, sizeof(s))) {
+		while (fin.read((char*)&s, sizeof(s))) {
 			if (s.retrollno() == mroll) {
 				s.display();
 				break;
@@ -79,7 +81,7 @@ void search() {
 		char mname[15], rname[15];
 		cout << "Enter name to search\n";
 		cin >> mname;
-		while (fs.read((char*)&s, sizeof(s))) {
+		while (fin.read((char*)&s, sizeof(s))) {
 			strcpy(rname, s.retname());
 			if (strcmp(rname, mname) == 0) {
 				s.display();
