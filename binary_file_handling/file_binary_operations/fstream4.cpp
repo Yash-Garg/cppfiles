@@ -17,9 +17,8 @@ public:
 		cin >> name;
 		cout << "Enter Total marks: ";
 		cin >> total;
-		}
-	void display()
-	{
+	}
+	void display() {
 		cout << "\nRoll Number: " << rollno;
 		cout << "\tName: " << name;
 		cout << "\tTotal Marks: " << total;
@@ -32,7 +31,7 @@ char rep;
 student s, s1;
 fstream fs, temp;
 
-//FUNTION TO CREATE binary file "Stud.dat"
+//Function to create binary file "Stud.dat"
 void create(){
 	fs.open("stud.dat", ios::out | ios::binary);
 	do {
@@ -113,27 +112,26 @@ int main()
 {
 	int ch;
 	char ch1;
-	do
-	{
-		cout << "\t\tFile Handling Functions MENU: \n";
-		cout << "1.Create a file \n";
-		cout << "2.Read all the records\n";
-		cout << "3.Append into the file \n";
+	do {
+		cout << "\t\tFile Handling Functions Menu: \n" << endl;
+		cout << "1. Create a file \n";
+		cout << "2. Read all the records\n";
+		cout << "3. Append into the file \n";
 		cout << "4. Search and display a records\n";
-		cout << "5.Count no of Records\n";
+		cout << "5. Count no of Records\n";
+		cout << endl << "Enter operation (1..5): ";
 		cin >> ch;
-		switch (ch)
-		{
+		system("cls");
+		switch (ch) {
 		case 1:create();break;
 		case 2:dispfile();break;
 		case 3:append();break;
 		case 4:search();break;
 		case 5:count_rec();break;
 		}
-		cout << "\nWant to continue (y/n)--?";
+		cout << "\nWant to continue (y/n): ";
 		cin >> ch1;
-		
+		system("cls");
 	} while (ch1 == 'y' || ch1 == 'Y');
     return 0;
 }
-
