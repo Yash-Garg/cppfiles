@@ -89,15 +89,6 @@ void search() {
 	}
 }
 
-void count_rec() {
-	int num = 0;
-	fs.open("stud.dat", ios::in);
-	while(fs.read((char*)&s,sizeof(s))) {
-		num++;
-	}
-	cout << "Records in the file are: " << num;
-}
-
 int main() {
 	int ch;
 	char ch1;
@@ -106,15 +97,13 @@ int main() {
 		cout << "1. Create a file \n";
 		cout << "2. Read all the records\n";
 		cout << "3. Search and display a records\n";
-		cout << "4. Count no of Records\n";
-		cout << endl << "Enter operation (1..5): ";
+		cout << endl << "Enter operation (1..3): ";
 		cin >> ch;
 		system("cls");
 		switch (ch) {
 		case 1:create();break;
 		case 2:dispfile();break;
 		case 3:search();break;
-		case 4:count_rec();break;
 		}
 		cout << "\nWant to continue (y/n): ";
 		cin >> ch1;
