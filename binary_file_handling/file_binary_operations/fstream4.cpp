@@ -37,7 +37,7 @@ student s, s1;
 fstream fs, temp;
 
 //Function to create binary file "Stud.dat"
-void create(){
+void create() {
 	fs.open("stud.dat", ios::out | ios::binary);
 	do {
 		s.getdata();
@@ -51,9 +51,10 @@ void create(){
 //Reading and displaying records from file
 void dispfile() {
 	fs.open("stud.dat", ios::in);
-	while (!fs.eof()){
-	fs.read((char*)&s, sizeof(s));
-	s.display();}	
+	while (!fs.eof()) {
+		fs.read((char*)&s, sizeof(s));
+		s.display();
+	}
 	fs.close();
 }
 
@@ -63,8 +64,7 @@ void search() {
 	cout << "Search on the basis of:\n 1.Roll No. 2.Name \n";
 	cout << "\n Enter Choice \n";
 	cin >> choice;
-	if (choice == 1)    //Searching on basis of Roll no
-	{
+	if (choice == 1) {    //Searching on basis of Roll no
 		int mroll;
 		cout << "Enter roll number to be searched:\n";
 		cin >> mroll;
@@ -75,15 +75,13 @@ void search() {
 			}
 		}
 	}
-	if (choice == 2) //searching on basis of name
-	{
+	if (choice == 2) { //searching on basis of name
 		char mname[15], rname[15];
 		cout << "Enter name to search\n";
 		cin >> mname;
 		while (fs.read((char*)&s, sizeof(s))) {
 			strcpy(rname, s.retname());
-			if (strcmp(rname, mname) == 0)
-			{
+			if (strcmp(rname, mname) == 0) {
 				s.display();
 				break;
 			}
@@ -91,18 +89,16 @@ void search() {
 	}
 }
 
-void count_rec(){
+void count_rec() {
 	int num = 0;
 	fs.open("stud.dat", ios::in);
-	while(fs.read((char*)&s,sizeof(s)))
-	{
+	while(fs.read((char*)&s,sizeof(s))) {
 		num++;
 	}
 	cout << "Records in the file are: " << num;
 }
 
-int main()
-{
+int main() {
 	int ch;
 	char ch1;
 	do {
