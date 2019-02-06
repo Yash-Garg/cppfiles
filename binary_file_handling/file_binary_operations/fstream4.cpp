@@ -20,11 +20,16 @@ public:
 	}
 	void display() {
 		cout << "\nRoll Number: " << rollno;
-		cout << "\tName: " << name;
-		cout << "\tTotal Marks: " << total;
+		cout << "\nName: " << name;
+		cout << "\nTotal Marks: " << total;
+		cout<<endl;
 	}
-	char *retname() { return(name); }
-	int retrollno() { return rollno;}
+	char *retname() {
+		return(name);
+	}
+	int retrollno() {
+		return rollno;
+	}
 };
 
 char rep;
@@ -37,7 +42,7 @@ void create(){
 	do {
 		s.getdata();
 		fs.write((char*)&s, sizeof(s));
-		cout << "\nDo you want to add more records y/n? \n";
+		cout << "\nDo you want to add more records (y/n): ";
 		cin >> rep;
 	} while (rep == 'y' || rep == 'Y');
 	fs.close();
@@ -49,20 +54,6 @@ void dispfile() {
 	while (!fs.eof()){
 	fs.read((char*)&s, sizeof(s));
 	s.display();}	
-	fs.close();
-}
-
-//Adding more records
-void append()
-{
-	fs.open("stud.dat", ios::app);
-	do
-	{
-		s.getdata();
-		fs.write((char*)&s, sizeof(s));
-		cout << "DO you want to add enter another records (y/n)";
-		cin >> rep;
-	} while (rep == 'y');
 	fs.close();
 }
 
@@ -79,7 +70,8 @@ void search() {
 		cin >> mroll;
 		while (fs.read((char*)&s, sizeof(s))) {
 			if (s.retrollno() == mroll) {
-				s.display();break;
+				s.display();
+				break;
 			}
 		}
 	}
@@ -92,7 +84,8 @@ void search() {
 			strcpy(rname, s.retname());
 			if (strcmp(rname, mname) == 0)
 			{
-				s.display();break;
+				s.display();
+				break;
 			}
 		}
 	}
@@ -116,18 +109,16 @@ int main()
 		cout << "\t\tFile Handling Functions Menu: \n" << endl;
 		cout << "1. Create a file \n";
 		cout << "2. Read all the records\n";
-		cout << "3. Append into the file \n";
-		cout << "4. Search and display a records\n";
-		cout << "5. Count no of Records\n";
+		cout << "3. Search and display a records\n";
+		cout << "4. Count no of Records\n";
 		cout << endl << "Enter operation (1..5): ";
 		cin >> ch;
 		system("cls");
 		switch (ch) {
 		case 1:create();break;
 		case 2:dispfile();break;
-		case 3:append();break;
-		case 4:search();break;
-		case 5:count_rec();break;
+		case 3:search();break;
+		case 4:count_rec();break;
 		}
 		cout << "\nWant to continue (y/n): ";
 		cin >> ch1;
